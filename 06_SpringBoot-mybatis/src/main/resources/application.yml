@@ -1,0 +1,41 @@
+server:
+  port: 8083
+
+spring:
+    datasource:
+      primary:
+          driver-class-name: com.mysql.jdbc.Driver
+          jdbc-url: jdbc:mysql:///ssm?userSSL=true&useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT
+          username: root
+          password: 1234
+          type: com.alibaba.druid.pool.DruidDataSource        
+          filters: stat
+          maxActive: 20
+          initialSize: 1
+          maxWait: 60000
+          minIdle: 1
+          timeBetweenEvictionRunsMillis: 60000
+          minEvictableIdleTimeMillis: 300000
+          validationQuery: select 'x'
+          testWhileIdle: true
+          testOnBorrow: false
+          testOnReturn: false
+          poolPreparedStatements: true
+          maxOpenPreparedStatements: 20
+      second:
+          jdbc-url: jdbc:mysql:///test?userSSL=true&useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT
+          username: root
+          password: 1234
+
+#mybatis: 
+#    mapper-locations: classpath*:mapper/*.xml
+#    type-aliases-package: com.okliu.springboot.entity
+ 
+#pagehelper 分页插件
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+
